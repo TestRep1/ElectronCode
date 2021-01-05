@@ -1,6 +1,6 @@
 const path = require('path');
 const electron = require('electron');
-const { BrowserWindow, app } = electron;
+const { ipcMain, app } = electron;
 const AppTray = require('./app/AppTray');
 const MainWindow = require('./app/MainWindow');
 
@@ -23,3 +23,8 @@ function createTray() {
     tray = new AppTray(iconPath, mainWindow);
 
 }
+
+ipcMain.on('TIMER_UPDATED', (event, time) => {
+    tray.setTitle(time);
+})
+

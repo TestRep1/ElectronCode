@@ -5,12 +5,13 @@ class MainWindow extends BrowserWindow {
     constructor() {
         super({
             show: false,
-            width: 300,
+            width: 300, 
             height: 500,
             frame: false,
             resizable: false,
             webPreferences: {
-                nodeIntegration: true
+                nodeIntegration: true,
+                backgroundThrottling: false
             }
         });
 
